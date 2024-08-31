@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-frx-calculator',
-  standalone: true,  // Declarar el componente como standalone
-  imports: [FormsModule, CommonModule],  // Asegúrate de importar FormsModule aquí
+  standalone: true, 
+  imports: [FormsModule, CommonModule],  
   templateUrl: './frx-calculator.component.html',
   styleUrls: ['./frx-calculator.component.css']
 })
