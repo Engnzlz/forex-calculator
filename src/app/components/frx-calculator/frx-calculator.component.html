@@ -28,7 +28,7 @@
             type="number" 
             class="form-control" 
             [ngClass]="{'is-invalid': errorMessage}" 
-            placeholder="Ingrese un monto sin puntos" 
+            placeholder="Ingrese un monto" 
             (blur)="validateAmount()"/>
 <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
 
