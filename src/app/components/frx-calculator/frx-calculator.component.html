@@ -1,56 +1,50 @@
 <div class="calculator-container">
-<h1>Forex Calculator</h1>
+<h1>Supra Forex Calculator</h1>
 
 <div class="form-group">
     <label for="initialCurrency">Moneda Inicial:</label>
-    <input
-    id="initialCurrency"
-    [(ngModel)]="initialCurrency"
-    placeholder="COP"
-    class="form-control"
-    />
+    <select id="initialCurrency" [(ngModel)]="initialCurrency" class="form-control">
+        <option value="COP">COP - Peso Colombiano</option>
+        <option value="USD">USD - Dólar Estadounidense</option>
+        <option value="EUR">EUR - Euro</option>
+        </select>
 </div>
 
 <div class="form-group">
     <label for="finalCurrency">Moneda Final:</label>
-    <input
-    id="finalCurrency"
-    [(ngModel)]="finalCurrency"
-    placeholder="USD"
-    class="form-control"
-    />
+    <select id="finalCurrency" [(ngModel)]="finalCurrency" class="form-control">
+        <option value="COP">COP - Peso Colombiano</option>
+        <option value="USD">USD - Dólar Estadounidense</option>
+        <option value="EUR">EUR - Euro</option>
+        </select>
 </div>
+
 
 <div class="form-group">
     <label for="initialAmount">Monto Inicial:</label>
-    <input
-    id="initialAmount"
-    [(ngModel)]="initialAmount"
-    type="number"
-    class="form-control"
-    />
-</div>
+    <div class="input-container">
+    <input id="initialAmount" 
+            [(ngModel)]="initialAmount" 
+            type="number" 
+            class="form-control" 
+            [ngClass]="{'is-invalid': errorMessage}" 
+            placeholder="Ingrese un monto sin puntos" 
+            (blur)="validateAmount()"/>
+<div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
 
 <button
     (click)="getQuote()"
     class="btn btn-primary"
-    [disabled]="!initialCurrency || !finalCurrency || !initialAmount"
->
+    [disabled]="!initialCurrency || !finalCurrency || !initialAmount || errorMessage">
     Obtener Cotización
 </button>
 
-<div *ngIf="quote" class="result">
-    <h2>Resultado de la Cotización</h2>
-    <p><strong>Tasa de Cambio:</strong> {{ quote.exchangeRate }}</p>
-    <p>
-    <strong>Monto Final:</strong> {{ quote.finalAmount }}
-    {{ quote.finalCurrency }}
-    </p>
+<div *ngIf="quote" class="respuesta">
+    <h2 class="h4 text-primary">Resultado de la Cotización</h2>
+    <p><strong>Tasa de Cambio:</strong> <span class="h5">{{ quote.exchangeRate }}</span></p>
+    <p><strong>Monto Final:</strong> <span class="h5">{{ quote.finalAmount }} {{ quote.finalCurrency }}</span></p>
     <p><strong>Coste de Transacción:</strong> {{ quote.transactionCost }}</p>
-    <p>
-    <strong>Token de Confirmación:</strong>
-    {{ quote.exchangeConfirmationToken }}
-    </p>
-    <p><strong>Expira a las:</strong> {{ quote.expiresAt | date : "short" }}</p>
+    <!-- <p><strong>Token de Confirmación:</strong> {{ quote.exchangeConfirmationToken }}</p> -->
+    <!-- <p><strong>Expira a las:</strong> {{ quote.expiresAt | date : 'short' }}</p> -->
 </div>
 </div>

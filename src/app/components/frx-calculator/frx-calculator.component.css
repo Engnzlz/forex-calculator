@@ -1,0 +1,137 @@
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #267dd4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.calculator-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #021135;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    font-size: 34px;
+    margin-bottom: 30px;
+    color: #00ff76;
+}
+
+/* Estilos de los campos de formulario */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 99%;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.form-group select, 
+.form-group input {
+    height: 50px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    width: 100%; 
+    box-sizing: border-box; 
+    margin-bottom: 10px;
+}
+
+.input-container {
+    position: relative;
+    width: 100%; 
+}
+
+.input-container .form-control {
+    padding-right: 100px; 
+}
+
+.input-container .text-danger {
+    position: absolute;
+    right: 10px;
+    color: #dc3545;
+    font-size: 12px;
+    pointer-events: none; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Botón de cotización */
+button.btn-primary {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #00ff76;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+
+button.btn-primary:hover {
+    background-color: #021135;
+    border: 1px solid #00ff76;
+    color: #00ff76;
+}
+
+/* Resultado de la cotización */
+.respuesta {
+    width: 100%;
+    max-width: 93%;
+    background-color: #00ff76;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.respuesta h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #021135;
+}
+
+.respuesta p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.respuesta .h5 {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.respuesta strong {
+    color: #021135;
+    font-weight: bold;
+}
+
+/* Mensajes de error */
+.is-invalid {
+    border-color: #dc3545;
+}
